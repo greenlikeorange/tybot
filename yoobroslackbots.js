@@ -2,6 +2,7 @@ var SlackBot = require("slackbots");
 var request = require("request");
 var fs = require("fs");
 global._ = require("lodash");
+
 var BOTS = _CONFIG.bots.slacks;
 var yoobroFacebook = require("./services/yoobroFacebook");
 
@@ -81,6 +82,7 @@ function botmaker(team) {
     if (data.type === "message") {
       if (!data.subtype) {
         data.text = data.text.replace(/[\s]{2,}/g, " ");
+
         if (data.text === "yoobro") {
           // send yoobro picture 
           getYoobroRandomPicture(channel, data);
