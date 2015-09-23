@@ -1,4 +1,4 @@
-var graph = require("graph");
+var graph = require("fbgraph");
 var memory = [];
 var READY = false;
 
