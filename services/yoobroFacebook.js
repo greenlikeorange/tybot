@@ -1,4 +1,4 @@
-var graph = require("graph");
+var graph = require("fbgraph");
 var memory = [];
 var READY = false;
 
@@ -28,7 +28,7 @@ function getPhotos(url) {
 getPhotos();
 
 module.exports = {
-  getRandon: function () {
+  getRandom: function () {
     if (!READY) {
       return false;
     }

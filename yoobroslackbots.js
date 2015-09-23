@@ -52,7 +52,7 @@ function botmaker(team) {
   }
 
   function getYoobroRandomPicture(channel, data) {
-    var image = yoobroFacebook();
+    var image = yoobroFacebook.getRandom();
     if (!image) {
       send(channel, "Sorry I'm not STATUS yet", null, data);
     } else {
@@ -82,8 +82,10 @@ function botmaker(team) {
       if (!data.subtype) {
         data.text = data.text.replace(/[\s]{2,}/g, " ");
         if (data.text === "yoobro") {
-          yoobro(channel, data);
+          // send yoobro picture 
+          getYoobroRandomPicture(channel, data);
         } else if (match = data.text.match(/yoo_bro:\scurl\s\<([\S]+)\>/)){
+          // curl from specific url
           var url = match[1].split("|")[0];
           if (url.split("/").length > 3) {
             if (url.split("/").slice(-1)[0].split(".").length > 1) {
@@ -108,6 +110,7 @@ function botmaker(team) {
             }
           });
         } else {
+          // Other text reply
           reply(data.channel, data.text, data);
         }
       }
