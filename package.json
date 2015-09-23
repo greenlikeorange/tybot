@@ -1,0 +1,17 @@
+{
+  "name": "slackbot",
+  "version": "0.1.1",
+  "description": "Funny Slackbot",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fbgraph": "^1.1.0",
+    "lodash": "^3.10.1",
+    "nodemon": "^1.7.0",
+    "request": "^2.63.0",
+    "slackbots": "^0.4.0"
+  }
+}
