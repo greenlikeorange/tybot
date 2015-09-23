@@ -1,4 +1,4 @@
-var graph = require("fbgraph");
+var graph = require("graph");
 var memory = [];
 var READY = false;
 
@@ -10,7 +10,7 @@ graph.setAccessToken(fbtoken);
 function getPhotos(url) {
   url = url || (yoobro_pageid + "/photos/uploaded?fields=source&limit=500");
   console.log("getting...");
-  fbgraph.get(url, function (err, res) {
+  graph.get(url, function (err, res) {
     if (err) return console.error(err);
 
     memory = memory.concat(res.data);

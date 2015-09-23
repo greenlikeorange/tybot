@@ -42,7 +42,7 @@ function botmaker(team) {
     logger(log);
   }
 
-  function reply(message, channel, log) {
+  function reply(channel, message, log) {
     message = message.toLowerCase();
 
     if (message.match(/yoobro|yoo_bro/)) {
@@ -52,19 +52,18 @@ function botmaker(team) {
   }
 
   function getYoobroRandomPicture(channel, data) {
-    
-    if (!STATUS) {
+    var image = yoobroFacebook();
+    if (!image) {
       send(channel, "Sorry I'm not STATUS yet", null, data);
     } else {
       var attachments = [
         {
           fallback: "yep, here is one!!!",
           title: "yep, here is one!!!",
-          image_url: _.sample(memory).source,
+          image_url: image,
           color: "#764fa5"
         }
       ];
-
       send(channel, " ", {
         attachments: JSON.stringify(attachments)
       }, data);
@@ -109,7 +108,7 @@ function botmaker(team) {
             }
           });
         } else {
-          reply(data.text, data.channel, data);
+          reply(data.channel, data.text, data);
         }
       }
     }
