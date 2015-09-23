@@ -47,6 +47,11 @@ function botmaker(team) {
     message = message.toLowerCase();
 
     if (message.match(/yoobro|yoo_bro/)) {
+      message = message.split(" ");
+      
+      if (message.indexOf("hi")) {
+        send(channel, "hi");
+      }
       logger(log);
     }
     // Other replay have to implement here
